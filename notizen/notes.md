@@ -1,44 +1,72 @@
-# Einleitung 10% - 7 Seiten
+# Notizen
 
-- Definition des Themas
-- Motivation
-- technische Herausforderungen
-- domänenspezifische Herausforderungen
-- Zielsetzung
+## Einleitung
 
-# Theoretischer Hintergrund 20% - 14 Seiten
+### Motivation
 
-- Theoretischer Hintergrund
-- Verwandte Arbeiten
-- Diskussion verschiedener Möglichkeiten / Methoden
-- Begründung der Auswahl einer Methode
+- Mamba als neues Modell im NLP Kontext
+  - Konkurrent zu Transformern ohne Attention und mit
+    weniger Parametern?
+- Verschiedene Ansätze für Vision Mamba
+- Edge TPU als Beschleuniger der Interferenz in Embedded Devices
+  wie dem Raspberry Pi (5)
+- Anwendung: Gefäß-Segmentierung in Netzhautbildern
 
-# Methoden 25% - 18 Seiten
+### Technische Herausforderung
 
-- detailierte theoretische Beschreibung der verwendeten Methoden
-- detailierte Beschreibung der Konzepte
-- Training, Hyperparameter
+- Edge TPU hat nur beschränktes Operationsset,
+  das genutzt werden kann
+- Edge TPU kann nur int8 modelle
+- Mamba Modelle lassen sich also nicht so leicht übertragen
 
-# Evaluation 25% - 18 Seiten
+### Zielsetzung
 
-- was soll gezeigt werden?
-- Metriken
-- Methode
-- Durchführung, Daten
-- nüchterne Ergebnisse
-- gute und schlechte Ergebnisse
-- Qualitativ und Quantitativ
+- Mamba Modell zur Image Segmentierung, das auf der Coral
+  Edge TPU läuft, präzise genug ist und wenig Latenz zeigt
 
-# Diskussion und Fazit 20% - 14 Seiten
+## Theoretischer Hintergrund
 
-- Zusammenfassung der wichtigsten Ergebnisse
-- Interpretation der Ergebnisse
-- Bewertung der Ergebnisse bzgl. Problemstellung
-- Kritische Auseinandersetzung mit verwendeten Methoden, Grenzen, Schwachpunkte
+### Edge TPU
 
-# Fazit und Ausblick 5% - 4 Seiten
+- Google
+- Tf Lite
+- Debian System
+- unterstützte Operatoren
+- Quantisierung nach dem Training
+- https://coral.ai/docs/edgetpu/models-intro/#model-requirements
 
-- Erkenntnisgewinn
-- Fortschritt
-- offene Fragen
+### Mamba
+
+- Idee und Abgrenzung zu Transformer
+
+### Vision Mamba
+
+- verschiedene Ansätze
+- Operatoren, die verwendet werden?
+
+### Daten
+
+- Wo kommen Daten her?
+- Was zeigen die Daten?
+- Beispiel
+
+### Metriken???
+
+## Methoden
+
+- Vision Mamba Modell Parametrisiert geschrieben
+- Hyperparameter Tuning
+
+## Evaluation
+
+- Vergleich der Laufzeit / Throughput auf verschiedenen Geräten
+  - PI
+  - PI + TPU
+  - CPU (Rechner / Laptop)
+  - GPU (Rechner / Laptop)
+  - verschiedene Tests, Anzahl etc.
+    -> qualitativ und quantitativ
+- Vergleich der gewählten Metrik auf den oben genannten Geräten
+  (post-quantisiertes Modell vor und nach Quantisierung)
+
 
